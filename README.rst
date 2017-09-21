@@ -7,12 +7,17 @@ Bootstrap Anyblok based project
 Requirements
 ------------
 
-Install `cookiecutter` command line: `pip install cookiecutter`
+Install `cookiecutter` command line: 
+
+  `pip install cookiecutter`
 
 Usage
 -----
 
-Generate a new Anyblok project template layout: `cookiecutter gh:franckbret/cookiecutter-anyblok-project`
+Generate a new Anyblok project template layout: 
+
+  `cookiecutter gh:franckbret/cookiecutter-anyblok-project`
+
 You will be prompt with some questions to set some configuration values.
 
 License
