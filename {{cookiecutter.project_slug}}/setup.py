@@ -13,9 +13,9 @@ with open('CHANGELOG.rst') as changelog_file:
 
 requirements = [
     'anyblok',
-    {% if cookiecutter.db_driver_name == 'postgresql' %}
+    {%- if cookiecutter.db_driver_name == 'postgresql' %}
     'psycopg2'
-    {% endif %}
+    {%- endif %}
 ]
 
 test_requirements = [
