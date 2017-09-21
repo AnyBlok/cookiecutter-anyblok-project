@@ -31,7 +31,7 @@ test_requirements = [
 } %}
 
 setup(
-    name='{{ cookiecutter.python_name }}',
+    name='{{ cookiecutter.python_package }}',
     version='{{ cookiecutter.version }}',
     description="{{ cookiecutter.project_short_description }}",
     long_description=readme + '\n\n' + changelog,
@@ -42,7 +42,7 @@ setup(
 
     entry_points={
         'bloks': [
-            '{{ cookiecutter.blok_name }}={{ cookiecutter.python_name }}.{{ cookiecutter.blok_name }}:{{ cookiecutter.blok_name.replace('_', '').capitalize() }}'
+            '{{ cookiecutter.blok_name }}={{ cookiecutter.python_package }}.{{ cookiecutter.blok_name }}:{{ cookiecutter.blok_name.replace('_', '').capitalize() }}'
             ]
     },
     include_package_data=True,
