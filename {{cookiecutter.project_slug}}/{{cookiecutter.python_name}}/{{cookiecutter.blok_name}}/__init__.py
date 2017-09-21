@@ -1,4 +1,3 @@
-import os
 from anyblok.blok import Blok
 
 

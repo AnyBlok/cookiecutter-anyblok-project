@@ -20,7 +20,7 @@ Credits
 
 .. _`Anyblok`: https://github.com/AnyBlok/AnyBlok
 
-This `Anyblok`_ package was created with `audreyr/cookiecutter`_ and the `franckbret/cookiecutter-anyblok-project`_ project template.
+This `Anyblok`_ package was created with `audreyr/cookiecutter`_ and the `AnyBlok/cookiecutter-anyblok-project`_ project template.
 
-.. _`franckbret/cookiecutter-anyblok-project`: https://github.com/franckbret/cookiecutter-anyblok-project
+.. _`AnyBlok/cookiecutter-anyblok-project`: https://github.com/Anyblok/cookiecutter-anyblok-project
 .. _`audreyr/cookiecutter`: https://github.com/audreyr/cookiecutter

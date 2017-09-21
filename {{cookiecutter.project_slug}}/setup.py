@@ -42,7 +42,7 @@ setup(
 
     entry_points={
         'bloks': [
-            '{{ cookiecutter.python_name }}={{ cookiecutter.python_name }}.{{ cookiecutter.blok_name }}:{{ cookiecutter.blok_name.replace('_', '').capitalize() }}'
+            '{{ cookiecutter.blok_name }}={{ cookiecutter.python_name }}.{{ cookiecutter.blok_name }}:{{ cookiecutter.blok_name.replace('_', '').capitalize() }}'
             ]
     },
     include_package_data=True,

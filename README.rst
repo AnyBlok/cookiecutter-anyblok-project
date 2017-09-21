@@ -16,9 +16,19 @@ Usage
 
 Generate a new Anyblok project template layout: 
 
-  `cookiecutter gh:franckbret/cookiecutter-anyblok-project`
+  `cookiecutter gh:AnyBlok/cookiecutter-anyblok-project`
 
 You will be prompt with some questions to set some configuration values.
+
+Credits
+---------
+
+.. _`Anyblok`: https://github.com/AnyBlok/AnyBlok
+
+This `Anyblok`_ package was created with `audreyr/cookiecutter`_ and the `AnyBlok/cookiecutter-anyblok-project`_ project template.
+
+.. _`AnyBlok/cookiecutter-anyblok-project`: https://github.com/Anyblok/cookiecutter-anyblok-project
+.. _`audreyr/cookiecutter`: https://github.com/audreyr/cookiecutter
 
 License
 -------
