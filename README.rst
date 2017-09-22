@@ -32,20 +32,34 @@ You will be prompt with questions to set configuration values.
   :blok_name: "project_name", the blok name
   :db_driver_name: "postgresql", the database driver name, AnyBlok use SqlAlchemy
   :db_name: "project_name", the database name
+  :http_server: ["no", "anyblok_pyramid"], anyblok_pyramid will add a pyramid http server
   :open_source_license: ["Mozilla Public License Version 2.0", "GNU General Public License v3", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"]
   :version: "0.1.0"
   :full_name: "Your name"
   :email: "you@example.com"
   :github_username: "github_username"
 
+Common commands
+---------------
+
+Once you have generated a project, you can see a list of common commands running.
+
+    `make help`
+
+Please note that you need to have to be within an activated virtualenv to launch those commands.
+
+For example `make setup-dev` will install python dependencies, create a new database and install
+the blok. You can then run `anyblok_interpreter -c app.dev.config` to access the interactive python
+api (See `Anyblok Tutorial`_ to dive in AnyBlok concepts)
+
+.. _`Anyblok Tutorial`: https://anyblok.gitbooks.io/anyblok-tutorial/content/
 
 Credits
 ---------
 
-.. _`Anyblok`: https://github.com/AnyBlok/AnyBlok
-
 This `Anyblok`_ package was created with `audreyr/cookiecutter`_ and the `AnyBlok/cookiecutter-anyblok-project`_ project template.
 
+.. _`Anyblok`: https://github.com/AnyBlok/AnyBlok
 .. _`AnyBlok/cookiecutter-anyblok-project`: https://github.com/Anyblok/cookiecutter-anyblok-project
 .. _`audreyr/cookiecutter`: https://github.com/audreyr/cookiecutter
 

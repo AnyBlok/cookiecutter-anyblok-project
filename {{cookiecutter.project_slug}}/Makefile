@@ -37,6 +37,11 @@ setup-dev: ## install python project dependencies for development
 	pip install -r requirements.dev.txt
 	anyblok_createdb -c app.dev.cfg || anyblok_updatedb -c app.dev.cfg
 
+{%- if cookiecutter.http_server == 'anyblok_pyramid' %}
+run-dev: ## launch pyramid development server
+	anyblok_pyramid -c app.dev.cfg --wsgi-host 0.0.0.0
+{%- endif %}
+
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
 
 clean-build: ## remove build artifacts

@@ -14,7 +14,10 @@ with open('CHANGELOG.rst') as changelog_file:
 requirements = [
     'anyblok',
     {%- if cookiecutter.db_driver_name == 'postgresql' %}
-    'psycopg2'
+    'psycopg2',
+    {%- endif %}
+    {%- if cookiecutter.http_server == 'anyblok_pyramid' %}
+    'anyblok_pyramid',
     {%- endif %}
 ]
 
