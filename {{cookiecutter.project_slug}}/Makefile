@@ -58,7 +58,7 @@ clean-pyc: ## remove Python file artifacts
 	find . -name '__pycache__' -exec rm -fr {} +
 
 lint: ## check style with flake8
-	flake8 .
+	flake8 {{ cookiecutter.python_package }}
 
 test: ## run anyblok nose tests
 	anyblok_nose -c app.test.cfg -- -v -s {{ cookiecutter.python_package }}
