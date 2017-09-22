@@ -15,8 +15,15 @@ Features
 
 * TODO
 
+Author
+------
+
+{{ cookiecutter.full_name }} 
+{{ cookiecutter.email }}
+https://github.com/{{ cookiecutter.github_username }}
+
 Credits
----------
+-------
 
 .. _`Anyblok`: https://github.com/AnyBlok/AnyBlok
 
@@ -24,3 +31,4 @@ This `Anyblok`_ package was created with `audreyr/cookiecutter`_ and the `AnyBlo
 
 .. _`AnyBlok/cookiecutter-anyblok-project`: https://github.com/Anyblok/cookiecutter-anyblok-project
 .. _`audreyr/cookiecutter`: https://github.com/audreyr/cookiecutter
+
