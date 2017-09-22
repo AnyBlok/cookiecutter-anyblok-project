@@ -103,3 +103,4 @@ ENV/
 
 # travis
 travis/
+travis_pyramid/
