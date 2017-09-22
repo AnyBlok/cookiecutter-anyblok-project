@@ -1,7 +1,7 @@
 from anyblok.blok import Blok
 
 
-class {{ cookiecutter.blok_name.replace('_', '').capitalize() }}(Blok):
+class {{ cookiecutter.blok_name.replace('_', '').replace('-', '').capitalize() }}(Blok):
     version = "{{ cookiecutter.version }}"
     required = ['anyblok-core']
 
