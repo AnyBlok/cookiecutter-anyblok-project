@@ -1,8 +1,7 @@
 {
-    "project_name": "Name of the project",
+    "project_name": "Project name",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
     "project_short_description": "A short description of the Anyblok based project",
-    "release_date": "{% now 'local' %}",
     "python_package": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "blok_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "db_driver_name": ["postgresql"],

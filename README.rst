@@ -21,14 +21,13 @@ Generate a new Anyblok project template layout:
 You will be prompt with questions to set configuration values.
 
 
-  :project_name: "Name of the project"
-  :project_slug: "name-of-the-project", used by repository/directory name
+  :project_name: "Project name"
+  :project_slug: "project-name", used by repository/directory name
   :project_short_description: "A short description of the Anyblok based project"
-  :release_date: ""
-  :python_package: "name_of_the_project", the python package name
-  :blok_name: "name_of_the_project", the blok name
+  :python_package: "project_name", the python package name
+  :blok_name: "project_name", the blok name
   :db_driver_name: "postgresql", the database driver name, AnyBlok use SqlAlchemy
-  :db_name: "name_of_the_project", the database name
+  :db_name: "project_name", the database name
   :open_source_license: ["Mozilla Public License Version 2.0", "GNU General Public License v3", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"]
   :version: "0.1.0"
   :full_name: "Your name"
