@@ -4,8 +4,7 @@ from anyblok.blok import Blok
 
 
 class {{ cookiecutter.blok_name.replace('_', '').replace('-', '').capitalize() }}(Blok):
-    """cookiecutter.blok_name.replace('_', '').replace('-', '').capitalize()'s Blok
-    class definition
+    """{{ cookiecutter.blok_name.replace('_', '').replace('-', '').capitalize()}}'s Blok class definition
     """
     version = "{{ cookiecutter.version }}"
     required = ['anyblok-core']
