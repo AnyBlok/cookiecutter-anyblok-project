@@ -48,9 +48,27 @@ Once you have generated a project, you can see a list of common commands running
 
 Please note that you need to have to be within an activated virtualenv to launch those commands.
 
-For example `make setup-dev` will install python dependencies, create a new database and install
-the blok. You can then run `anyblok_interpreter -c app.dev.config` to access the interactive python
+    `make setup-dev`
+
+Will install python dependencies, create a new database and install the blok. 
+You can then run "anyblok_interpreter -c app.dev.config" to access the interactive python
 api (See `Anyblok Tutorial`_ to dive in AnyBlok concepts)
+
+    `make setup-tests`
+
+Will install python testing dependencies and create a test database.
+
+    `make test`
+
+Will run unit tests.
+
+    `make lint`
+
+Will run flake8.
+
+    `make run-dev`
+
+If you choose to install `anyblok_pyramid`, it will run a webserver on localhost:8080.
 
 .. _`Anyblok Tutorial`: https://anyblok.gitbooks.io/anyblok-tutorial/content/
 
