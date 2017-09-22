@@ -8,9 +8,10 @@ python:
   - "3.6-dev" # 3.6 development branch
   - "3.7-dev" # 3.7 development branch
 
-allow_failures:
-  - python: "3.6-dev"
-  - python: "3.7-dev"
+matrix:
+  allow_failures:
+    - python: "3.6-dev"
+    - python: "3.7-dev"
 
 services:
   - postgresql
