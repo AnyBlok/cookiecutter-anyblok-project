@@ -1,15 +1,5 @@
 .PHONY: clean clean-build clean-pyc lint test setup help
 .DEFAULT_GOAL := help
-define BROWSER_PYSCRIPT
-import os, webbrowser, sys
-try:
-	from urllib import pathname2url
-except:
-	from urllib.request import pathname2url
-
-webbrowser.open("file://" + pathname2url(os.path.abspath(sys.argv[1])))
-endef
-export BROWSER_PYSCRIPT
 
 define PRINT_HELP_PYSCRIPT
 import re, sys
@@ -21,7 +11,6 @@ for line in sys.stdin:
 		print("%-20s %s" % (target, help))
 endef
 export PRINT_HELP_PYSCRIPT
-BROWSER := python -c "$$BROWSER_PYSCRIPT"
 
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
@@ -62,3 +51,6 @@ lint: ## check style with flake8
 
 test: ## run anyblok nose tests
 	anyblok_nose -c app.test.cfg -- -v -s {{ cookiecutter.python_package }}
+
+documentation: ## generate documentation
+	make -C doc/ html

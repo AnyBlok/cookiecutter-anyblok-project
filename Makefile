@@ -6,3 +6,4 @@ test:
 	make -C travis/ setup-tests
 	make -C travis/ test
 	make -C travis/ lint
+	make -C travis/ documentation

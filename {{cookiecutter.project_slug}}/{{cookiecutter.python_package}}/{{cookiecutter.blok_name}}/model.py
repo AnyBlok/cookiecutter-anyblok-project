@@ -1,3 +1,5 @@
+"""demo Example model, this model is goging to create table at startup
+"""
 from anyblok import Declarations
 from anyblok.column import Integer, String
 
@@ -11,7 +13,11 @@ class Example():
     http://anyblok.readthedocs.io/en/latest/MEMENTO.html#column
     """
     id = Integer(primary_key=True)
+    """Record identifier
+    """
     name = String(label="Name", unique=True, nullable=False)
+    """Record name
+    """
 
     def __str__(self):
         return ('{self.name}').format(self=self)
