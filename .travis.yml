@@ -1,0 +1,25 @@
+language: python
+sudo: false
+
+python:
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "3.6-dev" # 3.6 development branch
+  - "3.7-dev" # 3.7 development branch
+
+allow_failures:
+  - python: 3.6-dev
+  - python: 3.7-dev
+
+virtualenv:
+  system_site_packages: true
+
+services:
+  - postgresql
+
+install:
+  - pip install cookiecutter
+
+script:
+  - make test
