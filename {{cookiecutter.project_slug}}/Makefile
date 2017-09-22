@@ -31,13 +31,11 @@ setup: ## install python project dependencies
 
 setup-tests: ## install python project dependencies for tests
 	pip install -r requirements.test.txt
+	anyblok_createdb -c app.test.cfg || anyblok_updatedb -c app.test.cfg
 
 setup-dev: ## install python project dependencies for development
 	pip install -r requirements.dev.txt
-	# not very elegant to use || to be sure to have a database created and updated
-	# need IMP ideally get the db name from anyblok config file and check if database already exists
 	anyblok_createdb -c app.dev.cfg || anyblok_updatedb -c app.dev.cfg
-	anyblok_createdb -c app.test.cfg || anyblok_updatedb -c app.test.cfg
 
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
 
