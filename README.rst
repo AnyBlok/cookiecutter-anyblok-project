@@ -1,3 +1,7 @@
+.. image:: https://travis-ci.org/AnyBlok/cookiecutter-anyblok-project.svg?branch=master
+    :target: https://travis-ci.org/AnyBlok/cookiecutter-anyblok-project
+    :alt: Build status
+
 ============================
 cookiecutter-anyblok-project
 ============================
