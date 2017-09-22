@@ -13,11 +13,7 @@ class Example():
     http://anyblok.readthedocs.io/en/latest/MEMENTO.html#column
     """
     id = Integer(primary_key=True)
-    """Record identifier
-    """
     name = String(label="Name", unique=True, nullable=False)
-    """Record name
-    """
 
     def __str__(self):
         return ('{self.name}').format(self=self)

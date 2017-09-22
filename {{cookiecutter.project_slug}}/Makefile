@@ -54,4 +54,5 @@ test: ## run anyblok nose tests
 	anyblok_nose -c app.test.cfg -- -v -s {{ cookiecutter.python_package }}
 
 documentation: ## generate documentation
+	anyblok_doc -c app.dev.cfg --doc-format RST --doc-output doc/source/apidoc.rst
 	make -C doc/ html
