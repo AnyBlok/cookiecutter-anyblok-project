@@ -12,7 +12,8 @@ class ExampleView:
     @view_config(route_name='example')
     def example_get(self):
         """http get view example.
-        See http://doc.anyblok-pyramid.anyblok.org/en/latest/MEMENTO.html#memento
+        See
+        http://doc.anyblok-pyramid.anyblok.org/en/latest/MEMENTO.html#memento
         and https://trypyramid.com for more examples
         """
         return Response("Hello world!")
