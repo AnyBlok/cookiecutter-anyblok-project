@@ -3,7 +3,7 @@ from anyblok_pyramid import current_blok
 from pyramid.response import Response
 
 
-@view_defaults(installed_bloks=current_blok())
+@view_defaults(installed_blok=current_blok())
 class ExampleView:
     def __init__(self, request):
         self.request = request
