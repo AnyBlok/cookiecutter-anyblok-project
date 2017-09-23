@@ -3,8 +3,8 @@
 from anyblok.blok import Blok
 
 
-class {{ cookiecutter.blok_name.replace('_', '').replace('-', '').capitalize() }}(Blok):
-    """{{ cookiecutter.blok_name.replace('_', '').replace('-', '').capitalize()}}'s Blok class definition
+class {{ cookiecutter.blok_name.capitalize() }}(Blok):
+    """{{ cookiecutter.blok_name.capitalize() }}'s Blok class definition
     """
     version = "{{ cookiecutter.version }}"
     required = ['anyblok-core']

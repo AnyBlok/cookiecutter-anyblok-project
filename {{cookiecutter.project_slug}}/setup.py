@@ -46,10 +46,9 @@ setup(
     author_email='{{ cookiecutter.email }}',
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}',
     packages=find_packages(),
-
     entry_points={
         'bloks': [
-            '{{ cookiecutter.blok_name }}={{ cookiecutter.python_package }}.{{ cookiecutter.blok_name }}:{{ cookiecutter.blok_name.replace('_', '').capitalize() }}'
+            '{{ cookiecutter.blok_name }}={{ cookiecutter.python_package }}.{{ cookiecutter.blok_name }}:{{ cookiecutter.blok_name.capitalize() }}'
             ]
     },
     include_package_data=True,
