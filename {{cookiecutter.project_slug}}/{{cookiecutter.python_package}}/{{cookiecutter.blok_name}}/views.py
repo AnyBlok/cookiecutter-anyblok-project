@@ -9,11 +9,24 @@ class ExampleView:
         self.request = request
         self.registry = request.anyblok.registry
 
-    @view_config(route_name='example')
-    def example_get(self):
-        """http get view example.
-        See
-        http://doc.anyblok-pyramid.anyblok.org/en/latest/MEMENTO.html#memento
-        and https://trypyramid.com for more examples
+    @view_config(route_name='root')
+    def route_root(self):
+        return Response(
+            """
+            <a href="./example">List all availaible examples</a><br/>
+            <a href="./example/1">Get example id=1</a>
+            """
+        )
+
+    @view_config(route_name='example', request_method='GET')
+    def route_example(self):
+        example = self.registry.Example.query().get(
+            self.request.matchdict['id']
+        )
+        return Response(example.name)
+
+    @view_config(route_name='example_list', renderer='json')
+    def route_examples(self):
+        """view all examples.
         """
-        return Response("Hello world!")
+        return self.registry.Example.query().all().to_dict()

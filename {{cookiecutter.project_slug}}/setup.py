@@ -15,6 +15,9 @@ with open(os.path.join(here, 'README.rst'), 'r', encoding='utf-8') as readme_fil
 with open(os.path.join(here, 'CHANGELOG.rst'), 'r', encoding='utf-8') as changelog_file:
     changelog = changelog_file.read()
 
+with open(os.path.join(here, 'VERSION'), 'r', encoding='utf-8') as version_file:
+    version = version_file.read().strip()
+
 requirements = [
     'anyblok',
     {%- if cookiecutter.db_driver_name == 'postgresql' %}
@@ -39,7 +42,7 @@ test_requirements = [
 
 setup(
     name='{{ cookiecutter.python_package }}',
-    version='{{ cookiecutter.version }}',
+    version=version,
     description="{{ cookiecutter.project_short_description }}",
     long_description=readme + '\n\n' + changelog,
     author="{{ cookiecutter.full_name.replace('\"', '\\\"') }}",

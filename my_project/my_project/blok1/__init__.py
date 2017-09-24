@@ -3,10 +3,10 @@
 from anyblok.blok import Blok
 
 
-class {{ cookiecutter.blok_name.capitalize() }}(Blok):
-    """{{ cookiecutter.blok_name.capitalize() }}'s Blok class definition
+class Blok1(Blok):
+    """Blok1's Blok class definition
     """
-    version = "{{ cookiecutter.version }}"
+    version = "0.1.0"
     required = ['anyblok-core']
 
     @classmethod
@@ -22,18 +22,8 @@ class {{ cookiecutter.blok_name.capitalize() }}(Blok):
         """
         from . import model  # noqa
         reload(model)
-    {%- if cookiecutter.http_server == 'anyblok_pyramid' %}
 
     @classmethod
     def pyramid_load_config(cls, config):
-        config.add_route("root", "/")
-        config.add_route("example_list", "/example")
-        config.add_route("example", "/example/{id}")
+        config.add_route("example", "/")
         config.scan(cls.__module__ + '.views')
-    {%- endif %}
-
-    def update(self, latest):
-        """Update blok"""
-        # if we install this blok in the database we add a new record
-        if not latest:
-            self.registry.Example.insert(name="An example")
