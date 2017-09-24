@@ -52,7 +52,7 @@ Please note that you need to have to be within an activated virtualenv to launch
 
 Will install python dependencies, create a new database and install the blok. 
 You can then run "anyblok_interpreter -c app.dev.config" to access the interactive python
-api (See `Anyblok Tutorial`_ to dive in AnyBlok concepts)
+api (See `Anyblok Book`_ to dive in AnyBlok concepts)
 
     `make setup-tests`
 
@@ -70,7 +70,7 @@ Will run flake8.
 
 If you choose to install `anyblok_pyramid`, it will run a webserver on localhost:8080.
 
-.. _`Anyblok Tutorial`: https://anyblok.gitbooks.io/anyblok-tutorial/content/
+.. _`Anyblok Book`: https://anyblok.gitbooks.io/anyblok-book/content/
 
 Credits
 ---------
