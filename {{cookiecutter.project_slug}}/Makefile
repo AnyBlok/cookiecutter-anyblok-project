@@ -16,6 +16,7 @@ help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 setup: ## install python project dependencies
+	pip install gunicorn
 	pip install .
 
 setup-tests: ## install python project dependencies for tests
@@ -28,6 +29,9 @@ setup-dev: ## install python project dependencies for development
 	make setup-tests
 
 {%- if cookiecutter.http_server == 'anyblok_pyramid' %}
+run: ## launch pyramid server with gunicorn
+	gunicorn_anyblok_pyramid --anyblok-configfile app.cfg
+
 run-dev: ## launch pyramid development server
 	anyblok_pyramid -c app.dev.cfg --wsgi-host 0.0.0.0
 {%- endif %}
