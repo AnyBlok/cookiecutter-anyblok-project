@@ -7,6 +7,7 @@ class {{ cookiecutter.blok_name.capitalize() }}(Blok):
     """{{ cookiecutter.blok_name.capitalize() }}'s Blok class definition
     """
     version = "{{ cookiecutter.version }}"
+    author = "{{ cookiecutter.full_name.replace('\"', '\\\"') }}"
     required = ['anyblok-core']
 
     @classmethod
