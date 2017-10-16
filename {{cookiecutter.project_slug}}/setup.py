@@ -23,9 +23,12 @@ requirements = [
     {%- if cookiecutter.db_driver_name == 'postgresql' %}
     'psycopg2',
     {%- endif %}
-    {%- if 'anyblok_pyramid' in cookiecutter.http_server.split('+')%}
+    {%- if 'anyblok_pyramid' in cookiecutter.http_server.split('+') %}
     'anyblok_pyramid',
-    {%- if 'gunicorn' in cookiecutter.http_server.split('+')%}
+    {%- if 'beaker' in cookiecutter.http_server.split('+') %}
+    'anyblok_pyramid_beaker',
+    {%- endif %}
+    {%- if 'gunicorn' in cookiecutter.http_server.split('+') %}
     'gunicorn',
     {%- endif %}
     {%- endif %}

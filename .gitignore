@@ -4,6 +4,7 @@ sandbox/
 travis/
 travis_pyramid/
 travis_pyramid_gunicorn/
+travis_pyramid_beaker/
 *.py[cod]
 *$py.class
 *.swp
