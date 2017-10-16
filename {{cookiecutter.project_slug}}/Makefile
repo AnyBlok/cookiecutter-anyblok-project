@@ -30,13 +30,17 @@ setup-dev: ## install python project dependencies for development
 	make setup-tests
 
 {%- if cookiecutter.http_server == 'anyblok_pyramid' %}
-{%- if cookiecutter.http_wsgi == 'gunicorn' %}
-run: ## launch pyramid server with gunicorn
-	gunicorn_anyblok_pyramid --anyblok-configfile app.cfg
-{%- endif %}
-
 run-dev: ## launch pyramid development server
 	anyblok_pyramid -c app.dev.cfg --wsgi-host 0.0.0.0
+{%- endif %}
+
+{%- if cookiecutter.http_server == 'anyblok_pyramid+gunicorn' %}
+run-dev: ## launch pyramid development server
+	anyblok_pyramid -c app.dev.cfg --wsgi-host 0.0.0.0
+{%- endif %}
+
+run-gunicorn: ## launch pyramid server with gunicorn
+	gunicorn_anyblok_pyramid --anyblok-configfile app.cfg
 {%- endif %}
 
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
