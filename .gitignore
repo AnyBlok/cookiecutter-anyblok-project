@@ -1,5 +1,9 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+sandbox/
+travis/
+travis_pyramid/
+travis_pyramid_gunicorn/
 *.py[cod]
 *$py.class
 *.swp
