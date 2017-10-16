@@ -26,6 +26,9 @@ requirements = [
     {%- if cookiecutter.http_server == 'anyblok_pyramid' %}
     'anyblok_pyramid',
     {%- endif %}
+    {%- if cookiecutter.http_wsgi == 'gunicorn' %}
+    'gunicorn',
+    {%- endif %}
 ]
 
 test_requirements = [

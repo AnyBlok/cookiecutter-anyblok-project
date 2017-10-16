@@ -7,6 +7,7 @@
     "db_driver_name": ["postgresql"],
     "db_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "http_server": ["no", "anyblok_pyramid"],
+    "http_wsgi": ["no", "gunicorn"],
     "open_source_license": ["Mozilla Public License Version 2.0", "GNU General Public License v3", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"],
     "version": "0.1.0",
     "full_name": "Your name",
