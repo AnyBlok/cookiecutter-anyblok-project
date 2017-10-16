@@ -18,3 +18,8 @@ test:
 	make -C travis_pyramid_gunicorn/ test
 	make -C travis_pyramid_gunicorn/ lint
 	make -C travis_pyramid_gunicorn/ documentation
+	cookiecutter . --no-input project_name=travis_pyramid_beaker http_server=anyblok_pyramid+beaker
+	make -C travis_pyramid_beaker/ setup-tests
+	make -C travis_pyramid_beaker/ test
+	make -C travis_pyramid_beaker/ lint
+	make -C travis_pyramid_beaker/ documentation
