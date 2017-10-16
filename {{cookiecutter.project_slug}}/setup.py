@@ -23,8 +23,11 @@ requirements = [
     {%- if cookiecutter.db_driver_name == 'postgresql' %}
     'psycopg2',
     {%- endif %}
-    {%- if cookiecutter.http_server == 'anyblok_pyramid' %}
+    {%- if 'anyblok_pyramid' in cookiecutter.http_server.split('+')%}
     'anyblok_pyramid',
+    {%- if 'gunicorn' in cookiecutter.http_server.split('+')%}
+    'gunicorn',
+    {%- endif %}
     {%- endif %}
 ]
 

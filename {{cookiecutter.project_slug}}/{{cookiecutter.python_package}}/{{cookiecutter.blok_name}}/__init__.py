@@ -23,7 +23,7 @@ class {{ cookiecutter.blok_name.capitalize() }}(Blok):
         """
         from . import model  # noqa
         reload(model)
-    {%- if cookiecutter.http_server == 'anyblok_pyramid' %}
+    {%- if 'anyblok_pyramid' in cookiecutter.http_server.split('+') %}
 
     @classmethod
     def pyramid_load_config(cls, config):
