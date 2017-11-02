@@ -32,6 +32,9 @@ requirements = [
     'gunicorn',
     {%- endif %}
     {%- endif %}
+    {%- if cookiecutter.has_anyblok_marshmallow == 'yes' %}
+    'anyblok_marshmallow',
+    {%- endif %}
 ]
 
 test_requirements = [

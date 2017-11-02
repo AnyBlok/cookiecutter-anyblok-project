@@ -33,6 +33,7 @@ You will be prompt with questions to set configuration values.
   :db_driver_name: "postgresql", the database driver name, AnyBlok use SqlAlchemy
   :db_name: "project_name", the database name
   :http_server: ["no", "anyblok_pyramid", "anyblok_pyramid+beaker", "anyblok_pyramid+gunicorn", "anyblok_pyramid+beaker+gunicorn"], anyblok_pyramid will add a pyramid http server
+  :has_anyblok_marshmallow: ["no", "yes"], add the (de)serializator anyblok_marshmallow
   :open_source_license: ["Mozilla Public License Version 2.0", "GNU General Public License v3", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"]
   :version: "0.1.0"
   :full_name: "Your name"
