@@ -20,12 +20,12 @@ setup: ## install python project dependencies
 	anyblok_createdb -c app.cfg || anyblok_updatedb -c app.cfg
 
 setup-tests: ## install python project dependencies for tests
-	pip install -r requirements.test.txt
+	pip install --upgrade -r requirements.test.txt
 	pip install .
 	anyblok_createdb -c app.test.cfg || anyblok_updatedb -c app.test.cfg
 
 setup-dev: ## install python project dependencies for development
-	pip install -r requirements.dev.txt
+	pip install --upgrade -r requirements.dev.txt
 	python setup.py develop
 	anyblok_createdb -c app.dev.cfg || anyblok_updatedb -c app.dev.cfg
 
