@@ -16,6 +16,7 @@ with open(os.path.join(here, 'CHANGELOG.rst'), 'r', encoding='utf-8') as changel
     changelog = changelog_file.read()
 
 requirements = [
+    'sqlalchemy',
     'anyblok',
     {%- if cookiecutter.db_driver_name == 'postgresql' %}
     'psycopg2',
