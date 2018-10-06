@@ -16,15 +16,18 @@ help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 setup: ## install python project dependencies
+	pip install --upgrade pip wheel
 	pip install .
 	anyblok_createdb -c app.cfg || anyblok_updatedb -c app.cfg
 
 setup-tests: ## install python project dependencies for tests
+	pip install --upgrade pip wheel
 	pip install --upgrade -r requirements.test.txt
 	pip install .
 	anyblok_createdb -c app.test.cfg || anyblok_updatedb -c app.test.cfg
 
 setup-dev: ## install python project dependencies for development
+	pip install --upgrade pip wheel
 	pip install --upgrade -r requirements.dev.txt
 	python setup.py develop
 	anyblok_createdb -c app.dev.cfg || anyblok_updatedb -c app.dev.cfg
