@@ -19,16 +19,16 @@ requirements = [
     'sqlalchemy',
     'anyblok',
     {%- if cookiecutter.db_driver_name == 'postgresql' %}
-    'psycopg2',
+    'psycopg2-binary',
     {%- endif %}
     {%- if 'anyblok_pyramid' in cookiecutter.http_server.split('+') %}
     'anyblok_pyramid',
+    {%- endif %}
     {%- if 'beaker' in cookiecutter.http_server.split('+') %}
     'anyblok_pyramid_beaker',
     {%- endif %}
     {%- if 'gunicorn' in cookiecutter.http_server.split('+') %}
     'gunicorn',
-    {%- endif %}
     {%- endif %}
     {%- if cookiecutter.has_anyblok_marshmallow == 'yes' %}
     'anyblok_marshmallow',
