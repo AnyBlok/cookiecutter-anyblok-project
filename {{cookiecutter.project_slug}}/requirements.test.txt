@@ -1,5 +1,7 @@
+-e git+https://github.com/jssuzanne/anyblok@mysql_and_pytest#egg=anyblok
+pytest
+pytest-cov
 flake8
-coverage
 WebTest
 sphinx
 sphinxcontrib-httpdomain
