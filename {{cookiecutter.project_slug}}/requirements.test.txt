@@ -1,4 +1,4 @@
--e git+https://github.com/jssuzanne/anyblok@master#egg=anyblok
+-e git+https://github.com/AnyBlok/anyblok@master#egg=anyblok
 pytest
 pytest-cov
 flake8
