@@ -63,7 +63,7 @@ lint: ## check style with flake8
 	flake8 {{ cookiecutter.python_package }}
 
 test: ## run tests
-	ANYBLOK_DATABASE_NAME={{ cookiecutter.db_name }}_test ANYBLOK_DATABASE_DRIVER={{ cookiecutter.db_driver_name }} py.test -v -s {{ cookiecutter.python_package }}
+	ANYBLOK_CONFIG_FILE=app.test.cfg py.test -v -s {{ cookiecutter.python_package }}
 
 documentation: ## generate documentation
 	anyblok_doc -c app.test.cfg --doc-format RST --doc-output doc/source/apidoc.rst
