@@ -1,4 +1,3 @@
--e git+https://github.com/AnyBlok/anyblok@master#egg=anyblok
 pytest
 pytest-cov
 flake8
