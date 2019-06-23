@@ -21,9 +21,9 @@ requirements = [
     {%- if cookiecutter.db_driver_name == 'postgresql' %}
     'psycopg2-binary',
     {%- endif %}
-    { % - if cookiecutter.db_driver_name == 'mysql' %}
+    {%- if cookiecutter.db_driver_name == 'mysql' %}
     'mysqlclient',
-    { % - endif %}
+    {%- endif %}
     {%- if 'anyblok_pyramid' in cookiecutter.http_server.split('+') %}
     'anyblok_pyramid',
     {%- endif %}
