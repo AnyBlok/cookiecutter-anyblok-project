@@ -9,10 +9,14 @@ import os
 version = "{{ cookiecutter.version }}"
 here = os.path.abspath(os.path.dirname(__file__))
 
-with open(os.path.join(here, 'README.rst'), 'r', encoding='utf-8') as readme_file:
+with open(
+    os.path.join(here, 'README.rst'), 'r', encoding='utf-8'
+) as readme_file:
     readme = readme_file.read()
 
-with open(os.path.join(here, 'CHANGELOG.rst'), 'r', encoding='utf-8') as changelog_file:
+with open(
+    os.path.join(here, 'CHANGELOG.rst'), 'r', encoding='utf-8'
+) as changelog_file:
     changelog = changelog_file.read()
 
 requirements = [
