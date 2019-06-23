@@ -18,6 +18,7 @@ matrix:
 
 services:
   - postgresql
+  - mysql
 
 install:
   - pip install cookiecutter
