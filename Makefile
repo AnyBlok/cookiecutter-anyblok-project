@@ -1,6 +1,12 @@
 
 
 test:
+	rm -rf travis_mysql
+	cookiecutter . --no-input project_name=travis_mysql db_driver_name=mysql
+	make -C travis_mysql/ setup-tests
+	make -C travis_mysql/ test
+	make -C travis_mysql/ lint
+	make -C travis_mysql/ documentation
 	rm -rf travis
 	cookiecutter . --no-input project_name=travis
 	make -C travis/ setup-tests
