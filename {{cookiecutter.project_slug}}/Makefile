@@ -62,8 +62,8 @@ clean-pyc: ## remove Python file artifacts
 lint: ## check style with flake8
 	flake8 {{ cookiecutter.python_package }}
 
-test: ## run anyblok nose tests
-	anyblok_nose -c app.test.cfg -- -v -s {{ cookiecutter.python_package }}
+test: ## run tests
+	ANYBLOK_CONFIG_FILE=app.test.cfg py.test -v -s {{ cookiecutter.python_package }}
 
 documentation: ## generate documentation
 	anyblok_doc -c app.test.cfg --doc-format RST --doc-output doc/source/apidoc.rst

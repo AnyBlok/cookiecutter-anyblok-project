@@ -1,10 +1,10 @@
-from anyblok.tests.testcase import BlokTestCase
 
 
-class TestExample(BlokTestCase):
+class TestExample:
     """ Test python api on AnyBlok models"""
 
-    def test_create_example(self):
-        ex = self.registry.Example.insert(name="plop")
-        self.assertEqual(self.registry.Example.query().count(), 2)
-        self.assertEqual(ex.name, "plop")
+    def test_create_example(self, rollback_registry):
+        registry = rollback_registry
+        ex = registry.Example.insert(name="plop")
+        assert registry.Example.query().count() == 2
+        assert ex.name == "plop"
