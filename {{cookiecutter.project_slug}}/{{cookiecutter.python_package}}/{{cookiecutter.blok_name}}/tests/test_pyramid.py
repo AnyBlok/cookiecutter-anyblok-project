@@ -1,5 +1,7 @@
+import pytest
 
 
+@pytest.mark.usefixtures('rollback_registry')
 class TestPyramidExampleViews:
     """ Test pyramid routes with PyramidBlokTestCase"""
 
