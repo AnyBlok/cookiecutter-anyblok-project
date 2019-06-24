@@ -1,7 +1,7 @@
 from anyblok_pyramid.tests.testcase import PyramidBlokTestCase
 
 
-class TestCanigooRestApi(PyramidBlokTestCase):
+class TestPyramidExampleViews(PyramidBlokTestCase):
     """ Test pyramid routes with PyramidBlokTestCase"""
 
     def test_root(self):
