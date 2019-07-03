@@ -1,23 +1,24 @@
-from anyblok_pyramid.tests.testcase import PyramidBlokTestCase
+import pytest
 
 
-class TestPyramidExampleViews(PyramidBlokTestCase):
+@pytest.mark.usefixtures('rollback_registry')
+class TestPyramidExampleViews:
     """ Test pyramid routes with PyramidBlokTestCase"""
 
-    def test_root(self):
+    def test_root(self, webserver):
         """Test pyramid Example get route /"""
-        response = self.webserver.get('/')
-        self.assertEqual(response.status, '200 OK')
+        response = webserver.get('/')
+        assert response.status == '200 OK'
 
-    def test_examples(self):
-        response = self.webserver.get('/example')
-        self.assertEqual(response.status, '200 OK')
-        self.assertEqual(response.json_body, [{'id': 1, 'name': "An example"}])
+    def test_examples(self, webserver):
+        response = webserver.get('/example')
+        assert response.status == '200 OK'
+        assert response.json_body == [{'id': 1, 'name': "An example"}]
 
-    def test_get_example(self):
-        response = self.webserver.get('/example/1', status=200)
-        self.assertEqual(response.body.decode('utf8'), "An example")
+    def test_get_example(self, webserver):
+        response = webserver.get('/example/1', status=200)
+        assert response.body.decode('utf8') == "An example"
 
-    def test_post_example(self):
-        response = self.webserver.post('/example/1', status=404)
-        self.assertEqual(response.status, '404 Not Found')
+    def test_post_example(self, webserver):
+        response = webserver.post('/example/1', status=404)
+        assert response.status == '404 Not Found'
