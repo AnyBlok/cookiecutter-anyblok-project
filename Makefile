@@ -21,13 +21,14 @@ test:
 	make -C travis_pyramid/ documentation
 	rm -rf travis_furetui
 	cookiecutter . --no-input project_name=travis_furetui furetui=yes
-	make -C travis_pyramid/ setup-tests
-	make -C travis_pyramid/ test
-	make -C travis_pyramid/ lint
-	make -C travis_pyramid/ documentation
+	make -C travis_furetui/ setup-tests
+	make -C travis_furetui/ test
+	make -C travis_furetui/ lint
+	make -C travis_furetui/ documentation
 	rm -rf travis_furetui_custom
 	cookiecutter . --no-input project_name=travis_furetui furetui=custom
-	make -C travis_pyramid/ setup-tests
-	make -C travis_pyramid/ test
-	make -C travis_pyramid/ lint
-	make -C travis_pyramid/ documentation
+	make -C travis_custom/ initialize-backend
+	make -C travis_custom/ setup-tests
+	make -C travis_custom/ test
+	make -C travis_custom/ lint
+	make -C travis_custom/ documentation
