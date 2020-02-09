@@ -20,11 +20,18 @@ setup: ## install python project dependencies
 	pip install --upgrade -r requirements.txt
 	update-project -c app.cfg
 
+{%- if 'custom' == cookiecutter.furetui %}
+initialize-backend: ## create backend needed by furetui custom
+	nodeenv -p
+	npm i -g npm
+	npm install
+{% endif % }
+
 setup-tests: ## install python project dependencies for tests
 	pip install --upgrade pip wheel
 	pip install --upgrade -r requirements.test.txt
 	update-project -c app.test.cfg
-{%- if 'custom' != cookiecutter.furetui %}
+{%- if 'custom' == cookiecutter.furetui %}
 	nodeenv -p
 	npm i -g npm
 	npm install
@@ -34,7 +41,7 @@ setup-dev: ## install python project dependencies for development
 	pip install --upgrade pip wheel
 	pip install --upgrade -r requirements.dev.txt
 	update-project -c app.dev.cfg
-{%- if 'custom' != cookiecutter.furetui %}
+{%- if 'custom' == cookiecutter.furetui %}
 	nodeenv -p
 	npm i -g npm
 	npm install
@@ -51,7 +58,7 @@ run-gunicorn: ## launch pyramid server with gunicorn
 {%- endif %}
 
 
-{%- if 'custom' != cookiecutter.furetui %}
+{%- if 'custom' == cookiecutter.furetui %}
 run-dev-npm: ## launch npm development server with hot reload
 	npm update
 	npm run dev
@@ -87,7 +94,7 @@ lint: ## check style with flake8
 
 test: ## run tests
 	ANYBLOK_CONFIG_FILE=app.test.cfg py.test -v -s {{ cookiecutter.python_package }}
-{%- if 'custom' != cookiecutter.furetui %}
+{%- if 'custom' == cookiecutter.furetui %}
 	npm run test
 {%- endif %}
 
