@@ -28,17 +28,15 @@ requirements = [
     {%- if cookiecutter.db_driver_name == 'mysql' %}
     'mysqlclient',
     {%- endif %}
-    {%- if 'anyblok_pyramid' in cookiecutter.http_server.split('+') %}
+    {%- if 'pyramid' == cookiecutter.http_server %}
     'anyblok_pyramid',
-    {%- endif %}
-    {%- if 'beaker' in cookiecutter.http_server.split('+') %}
+    'anyblok-pyramid-rest-api',
     'anyblok_pyramid_beaker',
-    {%- endif %}
-    {%- if 'gunicorn' in cookiecutter.http_server.split('+') %}
     'gunicorn',
-    {%- endif %}
-    {%- if cookiecutter.has_anyblok_marshmallow == 'yes' %}
     'anyblok_marshmallow',
+    {%- endif %}
+    {%- if 'no' != cookiecutter.furetui %}
+    'anyblok_furetui',
     {%- endif %}
 ]
 
@@ -64,9 +62,12 @@ setup(
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}',
     packages=find_packages(),
     entry_points={
+        'console_scripts': [
+            'update-project={{ cookiecutter.python_package }}.scripts:update_project',
+        ],
         'bloks': [
             '{{ cookiecutter.blok_name }}={{ cookiecutter.python_package }}.{{ cookiecutter.blok_name }}:{{ cookiecutter.blok_name.capitalize() }}'
-            ]
+         ]
     },
     include_package_data=True,
     install_requires=requirements,
