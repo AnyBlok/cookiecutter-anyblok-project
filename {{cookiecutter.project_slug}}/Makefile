@@ -30,7 +30,7 @@ initialize-backend: ## create backend needed by furetui custom
 setup-tests: ## install python project dependencies for tests
 	pip install --upgrade pip wheel
 	pip install --upgrade -r requirements.test.txt
-	python update_project.py -c app.cfg
+	python update_project.py -c app.test.cfg
 {%- if 'custom' == cookiecutter.furetui %}
 	nodeenv -p
 	npm i -g npm
@@ -40,7 +40,7 @@ setup-tests: ## install python project dependencies for tests
 setup-dev: ## install python project dependencies for development
 	pip install --upgrade pip wheel
 	pip install --upgrade -r requirements.dev.txt
-	python update_project.py -c app.cfg
+	python update_project.py -c app.dev.cfg
 {%- if 'custom' == cookiecutter.furetui %}
 	nodeenv -p
 	npm i -g npm
