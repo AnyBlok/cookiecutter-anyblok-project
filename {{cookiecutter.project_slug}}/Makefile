@@ -18,34 +18,34 @@ help:
 setup: ## install python project dependencies
 	pip install --upgrade pip wheel
 	pip install --upgrade -r requirements.txt
-	update-project -c app.cfg
+	python update_project.py -c app.cfg
 
 {%- if 'custom' == cookiecutter.furetui %}
 initialize-backend: ## create backend needed by furetui custom
 	nodeenv -p
 	npm i -g npm
 	npm install
-{% endif % }
+{%- endif %}
 
 setup-tests: ## install python project dependencies for tests
 	pip install --upgrade pip wheel
 	pip install --upgrade -r requirements.test.txt
-	update-project -c app.test.cfg
+	python update_project.py -c app.cfg
 {%- if 'custom' == cookiecutter.furetui %}
 	nodeenv -p
 	npm i -g npm
 	npm install
-{% endif % }
+{%- endif %}
 
 setup-dev: ## install python project dependencies for development
 	pip install --upgrade pip wheel
 	pip install --upgrade -r requirements.dev.txt
-	update-project -c app.dev.cfg
+	python update_project.py -c app.cfg
 {%- if 'custom' == cookiecutter.furetui %}
 	nodeenv -p
 	npm i -g npm
 	npm install
-{% endif % }
+{%- endif %}
 
 {%- if 'pyramid' == cookiecutter.http_server or 'no' != cookiecutter.furetui %}
 
