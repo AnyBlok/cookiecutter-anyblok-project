@@ -35,7 +35,7 @@ def update_project():
     if not database_exists(url):
         db_template_name = Configuration.get('db_template_name', None)
         create_database(url, template=db_template_name)
-        to_install.append('toolsapiblok')
+        to_install.append('{{ cookiecutter.python_package }}')
         version = None
     else:
         options.update(dict(loadwithoutmigration=True))
@@ -48,7 +48,7 @@ def update_project():
     if version is None:
         pass
     else:
-        to_update.append('toolsapiblok')
+        to_update.append('{{ cookiecutter.python_package }}')
 
     registry.upgrade(install=to_install, update=to_update,
                      uninstall=to_uninstall)
@@ -56,3 +56,7 @@ def update_project():
     registry.commit()
     registry.close()
     logger.info("Project updated: db_name=%r", db_name)
+
+
+if __name__ == '__main__':
+    update_project()
