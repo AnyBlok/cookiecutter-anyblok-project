@@ -62,9 +62,6 @@ setup(
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}',
     packages=find_packages(),
     entry_points={
-        'console_scripts': [
-            'update-project={{ cookiecutter.python_package }}.scripts:update_project',
-        ],
         'bloks': [
             '{{ cookiecutter.blok_name }}={{ cookiecutter.python_package }}.{{ cookiecutter.blok_name }}:{{ cookiecutter.blok_name.capitalize() }}'
          ]
