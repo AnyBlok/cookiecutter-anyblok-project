@@ -20,13 +20,6 @@ setup: ## install python project dependencies
 	pip install --upgrade -r requirements.txt
 	python update_project.py -c app.cfg
 
-{%- if 'custom' == cookiecutter.furetui %}
-initialize-backend: ## create backend needed by furetui custom
-	nodeenv -p
-	npm i -g npm
-	npm install
-{%- endif %}
-
 setup-tests: ## install python project dependencies for tests
 	pip install --upgrade pip wheel
 	pip install --upgrade -r requirements.test.txt
@@ -91,11 +84,14 @@ clean-test: ## remove test artifacts
 
 lint: ## check style with flake8
 	flake8 {{ cookiecutter.python_package }}
+{%- if 'custom' == cookiecutter.furetui %}
+	npm run lint
+{%- endif %}
 
 test: ## run tests
 	ANYBLOK_CONFIG_FILE=app.test.cfg py.test -v -s {{ cookiecutter.python_package }}
 {%- if 'custom' == cookiecutter.furetui %}
-	npm run test
+	npm run test:unit
 {%- endif %}
 
 documentation: ## generate documentation
