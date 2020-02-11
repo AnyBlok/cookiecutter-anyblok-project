@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "furetui": "git+ssh://github.com/AnyBlok/furet_ui.git#1.3.0",
+    "furetui": "git+ssh://github.com/AnyBlok/furet_ui.git#refactor",
     "vue-select": "^3.4.0"
   },
   "devDependencies": {

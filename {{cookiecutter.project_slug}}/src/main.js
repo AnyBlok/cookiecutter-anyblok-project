@@ -1,10 +1,6 @@
-import Vue from 'vue'
-import 'furetui/src/views';
-import 'furetui/src/fields';
-import 'furetui/src/app';
-import createFuretUIClient from 'furetui/src/client';
+import { startFuretUI } from 'furetui/src/main';
+import { routes } from 'furetui/src/router';
+import './components';
+import './styles.scss';
 
-console.log('plop', createFuretUIClient)
-createFuretUIClient('#furet-ui-custom')
-
-Vue.config.productionTip = false
+startFuretUI('furet-ui-custom', routes);

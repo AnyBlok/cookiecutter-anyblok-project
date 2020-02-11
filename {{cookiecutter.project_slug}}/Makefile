@@ -54,7 +54,7 @@ run-gunicorn: ## launch pyramid server with gunicorn
 {%- if 'custom' == cookiecutter.furetui %}
 run-dev-npm: ## launch npm development server with hot reload
 	npm update
-	npm run dev
+	npm run serve
 
 build-assets: ## build js and scss assets for production
 	npm update

@@ -11,4 +11,7 @@ rm -vr public
 rm -vr tests
 rm -v package.json
 rm -v babel.config.js
+rm -v vue.config.js
+rm -v .env
+rm -v .env.development
 {%- endif %}
