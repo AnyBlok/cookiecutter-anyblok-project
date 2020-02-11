@@ -4,6 +4,8 @@ git+https://github.com/AnyBlok/Anyblok_Pyramid.git#egg=anyblok_pyramid
 git+https://github.com/AnyBlok/anyblok-pyramid-rest-api.git#egg=anyblok_pyramid_rest_api
 {%- endif %}
 {%- if 'no' != cookiecutter.furetui %}
+pygments==2.0.2
+anyblok_io
 git+https://github.com/AnyBlok/anyblok_furetui.git@refactor#egg=anyblok_furetui
 {%- endif %}
 
