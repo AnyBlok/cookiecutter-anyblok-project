@@ -35,7 +35,7 @@ def update_project():
     if not database_exists(url):
         db_template_name = Configuration.get('db_template_name', None)
         create_database(url, template=db_template_name)
-        to_install.append('{{ cookiecutter.python_package }}')
+        to_install.append('{{ cookiecutter.blok_name }}')
         version = None
     else:
         options.update(dict(loadwithoutmigration=True))
@@ -48,7 +48,7 @@ def update_project():
     if version is None:
         pass
     else:
-        to_update.append('{{ cookiecutter.python_package }}')
+        to_update.append('{{ cookiecutter.blok_name }}')
 
     registry.upgrade(install=to_install, update=to_update,
                      uninstall=to_uninstall)
