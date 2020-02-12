@@ -24,9 +24,10 @@ requirements = [
     'anyblok',
     {%- if cookiecutter.db_driver_name == 'postgresql' %}
     'psycopg2-binary',
-    {%- endif %}
-    {%- if cookiecutter.db_driver_name == 'mysql' %}
+    {%- elif cookiecutter.db_driver_name == 'mysql' %}
     'mysqlclient',
+    {%- elif cookiecutter.db_driver_name == 'mssql' %}
+    'pymssql',
     {%- endif %}
     {%- if 'pyramid' == cookiecutter.http_server %}
     'anyblok_pyramid',

@@ -4,7 +4,7 @@
     "project_short_description": "A short description of the Anyblok based project",
     "python_package": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "blok_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
-    "db_driver_name": ["postgresql", "mysql"],
+    "db_driver_name": ["postgresql", "mysql", "mssql"],
     "db_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "furetui": ["no", "yes", "custom"],
     "http_server": ["no", "pyramid"],
