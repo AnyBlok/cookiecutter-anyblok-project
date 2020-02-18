@@ -8,7 +8,12 @@ class {{ cookiecutter.blok_name.capitalize() }}(Blok):
     """
     version = "{{ cookiecutter.version }}"
     author = "{{ cookiecutter.full_name.replace('\"', '\\\"') }}"
-    required = ['anyblok-core']
+    required = [
+        'anyblok-core',
+        {%- if 'no' != cookiecutter.furetui %}
+        'furetui',
+        {%- endif %}
+    ]
 
     @classmethod
     def import_declaration_module(cls):
