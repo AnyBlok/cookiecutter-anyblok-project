@@ -14,9 +14,8 @@ pycountry
 cryptography
 {%- if 'no' != cookiecutter.furetui %}
 pygments==2.0.2
-anyblok_io
 git+https://github.com/AnyBlok/anyblok_furetui.git@refactor#egg=anyblok_furetui
 {%- endif %}
 
 
--e .
+.
