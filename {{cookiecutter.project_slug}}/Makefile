@@ -58,7 +58,9 @@ run-dev-npm: ## launch npm development server with hot reload
 
 build-assets: ## build js and scss assets for production
 	npm update
-	npm run build-prod
+	npm run build
+	rm -rfv {{ cookiecutter.python_package }}/{{ cookiecutter.blok_name }}/static/furetui
+	mv dist {{ cookiecutter.python_package }}/{{ cookiecutter.blok_name }}/static/furetui
 {%- endif %}
 
 
