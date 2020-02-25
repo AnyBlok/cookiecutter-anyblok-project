@@ -22,6 +22,6 @@ ipdbplugin
 ipython
 nodeenv
 
--e requirements.test.txt
+-r requirements.test.txt
 
 -e .
