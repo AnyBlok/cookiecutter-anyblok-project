@@ -1,5 +1,5 @@
 {%- if 'mssql' == cookiecutter.db_driver_name %}
-SQLAlchemy-Utils
+SQLAlchemy-Util
 {%- endif %}
 git+https://github.com/AnyBlok/AnyBlok.git#egg=anyblok
 {%- if 'pyramid' == cookiecutter.http_server or 'no' != cookiecutter.furetui %}

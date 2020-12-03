@@ -5,5 +5,4 @@ ipdbplugin
 ipython
 nodeenv
 
-
 -e .
