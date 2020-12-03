@@ -1,27 +1,9 @@
-{%- if 'mssql' == cookiecutter.db_driver_name %}
--e git+https://github.com/jssuzanne/sqlalchemy-utils.git@mssql_and_pymssql#egg=sqlalchemy_utils
-{%- endif %}
--e git+https://github.com/AnyBlok/AnyBlok.git#egg=anyblok
-{%- if 'pyramid' == cookiecutter.http_server or 'no' != cookiecutter.furetui %}
--e git+https://github.com/AnyBlok/Anyblok_Pyramid.git#egg=anyblok_pyramid
--e git+https://github.com/AnyBlok/anyblok-pyramid-rest-api.git#egg=anyblok_pyramid_rest_api
-{%- endif %}
-colour 
-passlib 
-furl 
-phonenumbers 
-pycountry
-cryptography
-{%- if 'no' != cookiecutter.furetui %}
-pygments==2.0.2
--e git+https://github.com/AnyBlok/anyblok_furetui.git@refactor#egg=anyblok_furetui
-{%- endif %}
+-r requirements.txt
 
 ipdb
 ipdbplugin
 ipython
 nodeenv
 
--r requirements.test.txt
 
 -e .
