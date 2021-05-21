@@ -17,32 +17,52 @@ help:
 
 setup: ## install python project dependencies
 	pip install --upgrade pip wheel
-	pip install .
-	anyblok_createdb -c app.cfg || anyblok_updatedb -c app.cfg
+	pip install --upgrade -r requirements.txt
+	python update_project.py -c app.cfg
 
 setup-tests: ## install python project dependencies for tests
 	pip install --upgrade pip wheel
 	pip install --upgrade -r requirements.test.txt
-	pip install .
-	anyblok_createdb -c app.test.cfg || anyblok_updatedb -c app.test.cfg
+	python update_project.py -c app.test.cfg
+{%- if 'custom' == cookiecutter.furetui %}
+	nodeenv -p
+	npm i -g npm
+	npm install
+{%- endif %}
 
 setup-dev: ## install python project dependencies for development
 	pip install --upgrade pip wheel
 	pip install --upgrade -r requirements.dev.txt
-	python setup.py develop
-	anyblok_createdb -c app.dev.cfg || anyblok_updatedb -c app.dev.cfg
+	python update_project.py -c app.dev.cfg
+{%- if 'custom' == cookiecutter.furetui %}
+	nodeenv -p
+	npm i -g npm
+	npm install
+{%- endif %}
 
-{%- if 'anyblok_pyramid' in cookiecutter.http_server.split('+') %}
+{%- if 'pyramid' == cookiecutter.http_server or 'no' != cookiecutter.furetui %}
 
 run-dev: ## launch pyramid development server
 	anyblok_pyramid -c app.dev.cfg --wsgi-host 0.0.0.0
-{%- if 'gunicorn' in cookiecutter.http_server.split('+') %}
 
 run-gunicorn: ## launch pyramid server with gunicorn
 	gunicorn_anyblok_pyramid --anyblok-configfile app.cfg
 
 {%- endif %}
+
+
+{%- if 'custom' == cookiecutter.furetui %}
+run-dev-npm: ## launch npm development server with hot reload
+	npm update
+	npm run serve
+
+build-assets: ## build js and scss assets for production
+	npm update
+	npm run build
+	rm -rfv {{ cookiecutter.python_package }}/{{ cookiecutter.blok_name }}/static/furetui
+	mv dist {{ cookiecutter.python_package }}/{{ cookiecutter.blok_name }}/static/furetui
 {%- endif %}
+
 
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
 
@@ -66,9 +86,15 @@ clean-test: ## remove test artifacts
 
 lint: ## check style with flake8
 	flake8 {{ cookiecutter.python_package }}
+{%- if 'custom' == cookiecutter.furetui %}
+	npm run lint
+{%- endif %}
 
 test: ## run tests
 	ANYBLOK_CONFIG_FILE=app.test.cfg py.test -v -s {{ cookiecutter.python_package }}
+{%- if 'custom' == cookiecutter.furetui %}
+	npm run test:unit
+{%- endif %}
 
 documentation: ## generate documentation
 	anyblok_doc -c app.test.cfg --doc-format RST --doc-output doc/source/apidoc.rst

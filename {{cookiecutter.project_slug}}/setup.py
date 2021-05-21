@@ -24,21 +24,20 @@ requirements = [
     'anyblok',
     {%- if cookiecutter.db_driver_name == 'postgresql' %}
     'psycopg2-binary',
-    {%- endif %}
-    {%- if cookiecutter.db_driver_name == 'mysql' %}
+    {%- elif cookiecutter.db_driver_name == 'mysql' %}
     'mysqlclient',
+    {%- elif cookiecutter.db_driver_name == 'mssql' %}
+    'pymssql',
     {%- endif %}
-    {%- if 'anyblok_pyramid' in cookiecutter.http_server.split('+') %}
+    {%- if 'pyramid' == cookiecutter.http_server %}
     'anyblok_pyramid',
-    {%- endif %}
-    {%- if 'beaker' in cookiecutter.http_server.split('+') %}
+    'anyblok-pyramid-rest-api',
     'anyblok_pyramid_beaker',
-    {%- endif %}
-    {%- if 'gunicorn' in cookiecutter.http_server.split('+') %}
     'gunicorn',
-    {%- endif %}
-    {%- if cookiecutter.has_anyblok_marshmallow == 'yes' %}
     'anyblok_marshmallow',
+    {%- endif %}
+    {%- if 'no' != cookiecutter.furetui %}
+    'anyblok_furetui',
     {%- endif %}
 ]
 
@@ -66,7 +65,7 @@ setup(
     entry_points={
         'bloks': [
             '{{ cookiecutter.blok_name }}={{ cookiecutter.python_package }}.{{ cookiecutter.blok_name }}:{{ cookiecutter.blok_name.capitalize() }}'
-            ]
+         ]
     },
     include_package_data=True,
     install_requires=requirements,

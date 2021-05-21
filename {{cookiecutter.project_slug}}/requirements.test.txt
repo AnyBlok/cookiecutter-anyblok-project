@@ -4,3 +4,4 @@ flake8
 WebTest
 sphinx
 sphinxcontrib-httpdomain
+nodeenv
