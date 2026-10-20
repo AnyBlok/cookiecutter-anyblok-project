@@ -6,8 +6,8 @@
     "blok_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "db_driver_name": ["postgresql", "mysql", "mssql"],
     "db_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
-    "furetui": ["no", "yes", "custom"],
-    "http_server": ["no", "pyramid"],
+    "http_server": ["starlette", "fastapi", "pyramid", "no"],
+    "feretui": ["yes", "no"],
     "furetui": ["no", "yes", "custom"],
     "open_source_license": [
         "Mozilla Public License Version 2.0", 

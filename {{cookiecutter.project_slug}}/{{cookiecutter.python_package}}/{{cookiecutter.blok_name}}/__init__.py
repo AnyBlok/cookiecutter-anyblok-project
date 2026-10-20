@@ -10,7 +10,9 @@ class {{ cookiecutter.blok_name.capitalize() }}(Blok):
     author = "{{ cookiecutter.full_name.replace('\"', '\\\"') }}"
     required = [
         'anyblok-core',
-        {%- if 'no' != cookiecutter.furetui %}
+        {%- if 'yes' == cookiecutter.feretui %}
+        'anyblok-starlette-feretui',
+        {%- elif 'no' != cookiecutter.furetui %}
         'furetui',
         {%- endif %}
     ]
@@ -20,15 +22,22 @@ class {{ cookiecutter.blok_name.capitalize() }}(Blok):
         """Python module to import in the given order at start-up
         """
         from . import model  # noqa
+        {%- if 'yes' == cookiecutter.feretui %}
+        from . import resources  # noqa
+        {%- endif %}
 
     @classmethod
     def reload_declaration_module(cls, reload):
         """Python module to import while reloading server (ie when
-        adding Blok at runtime
+        adding Blok at runtime)
         """
         from . import model  # noqa
         reload(model)
-    {%- if 'anyblok_pyramid' in cookiecutter.http_server.split('+') %}
+        {%- if 'yes' == cookiecutter.feretui %}
+        from . import resources  # noqa
+        reload(resources)
+        {%- endif %}
+    {%- if 'pyramid' == cookiecutter.http_server %}
 
     @classmethod
     def pyramid_load_config(cls, config):
@@ -36,10 +45,17 @@ class {{ cookiecutter.blok_name.capitalize() }}(Blok):
         config.add_route("example_list", "/example")
         config.add_route("example", "/example/{id}")
         config.scan(cls.__module__ + '.views')
-    {%- endif %}
+    {%- elif 'fastapi' == cookiecutter.http_server %}
 
-    def update(self, latest):
-        """Update blok"""
-        # if we install this blok in the database we add a new record
-        if not latest:
-            self.registry.Example.insert(name="An example")
+    @classmethod
+    def prepare_fastapi(cls, app, registry):
+        from .views import get_router
+        app.include_router(get_router(registry))
+    {%- elif 'starlette' == cookiecutter.http_server %}
+
+    @classmethod
+    def prepare_starlette(cls, app, registry):
+        from .views import routes
+        for route in routes:
+            app.routes.append(route)
+    {%- endif %}

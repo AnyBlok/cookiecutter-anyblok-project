@@ -29,14 +29,22 @@ requirements = [
     {%- elif cookiecutter.db_driver_name == 'mssql' %}
     'pymssql',
     {%- endif %}
-    {%- if 'pyramid' == cookiecutter.http_server %}
+    {%- if 'starlette' == cookiecutter.http_server %}
+    'anyblok-starlette>=0.1.0',
+    'uvicorn[standard]',
+    {%- elif 'fastapi' == cookiecutter.http_server %}
+    'anyblok-fastapi>=0.2.0',
+    'uvicorn[standard]',
+    {%- elif 'pyramid' == cookiecutter.http_server %}
     'anyblok_pyramid',
     'anyblok-pyramid-rest-api',
     'anyblok_pyramid_beaker',
     'gunicorn',
     'anyblok_marshmallow',
     {%- endif %}
-    {%- if 'no' != cookiecutter.furetui %}
+    {%- if 'yes' == cookiecutter.feretui %}
+    'anyblok-starlette-feretui>=0.1.0',
+    {%- elif 'no' != cookiecutter.furetui %}
     'anyblok_furetui',
     {%- endif %}
 ]
@@ -82,10 +90,9 @@ setup(
 {%- endif %}
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
     ],
     test_suite='tests',
     tests_require=test_requirements,
